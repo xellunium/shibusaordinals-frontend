@@ -1,21 +1,19 @@
-const appendConditionalClass = (value, targetClass, ...baseClasses) => {
+/**
+ * 
+ * conditional appending class to array of classes
+ * @param {condition} value 
+ * @param {class that should be added if condition is true} targetClass 
+ * @param  {array of other default classes, added either way} baseClasses 
+ */
+const appendConditionalClass = (
+    value, 
+    targetClass, 
+    ...baseClasses
+    ) => {
     return value ? [...baseClasses, targetClass].join(' ') : [...baseClasses].join(' ')
 } 
 
-const imgPack = (src, alt) => {
-    return {
-        src: require("../../assets/" + src),
-        alt: alt
-    };
-}
-
-const activePage = (props) => getPage(props) == props.selfPageName;
-
-const getPage = (props) => props.page;
 
 export { 
     appendConditionalClass,
-    imgPack,
-    activePage,
-    getPage
 };

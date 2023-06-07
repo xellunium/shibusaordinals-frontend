@@ -5,34 +5,16 @@
     top: 0;
     right: 0;
     background-color: var(--topbar-bg);
-    z-index: var(--layer-2);
+    z-index: var(--layer-4);
 }
 
 .Image {
-    height: 80%;
+    height: 150%;
     position: absolute;
-    border-radius: calc(var(--topbar-h) * 0.5);
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
-    animation: var(--animation-slide-in-left), var(--animation-scale-up) reverse;
-    animation-timing-function: var(--ease-elastic-2);
-    animation-duration: 1.5s;
-    /* animation: BubblyCat 7s ease-in-out infinite alternate, */
-    /* RotateCat 9s linear infinite alternate; */
-    z-index: var(--layer-3);
-}
-
-@keyframes BubblyCat {
-    to {
-        transform: translate(+200%, -50%);
-    }
-}
-
-@keyframes RotateCat {
-    to {
-        transform: translateY(-50%) rotateZ(360deg);
-    }
+    z-index: var(--layer-5);
 }
 
 .BurgerIcon {
@@ -54,6 +36,7 @@
     padding-right: var(--size-2);
     font-size: var(--size-4);
     padding: 0 var(--size-2);
+    z-index: var(--layer-2);
 }
 
 .Items:hover {
@@ -125,5 +108,8 @@
     .Navigator.Responsive {
         top: 0;
         transform: translateY(0);
+    }
+    .Image.Responsive {
+        z-index: 0;
     }
 }

@@ -1,28 +1,28 @@
-import { imgPack } from "src/helpers/utils";
+import { imgPack } from "src/helpers/imgs";
 
 const contents = {
     imgs: {
-        logo: imgPack("logos/logo.png", "logo"),
+        logo: imgPack("logos/shibusa.png", "logo"),
     },
     txts: {
-        items: ["MINT", "‌ABOUT", "GALLERY"],
+        items: ["HOME", "LORE", "GALLERY", "‌ABOUT"],
     },
     socials: [
         {
             url: "https://discord.com",
-            logo: imgPack("logos/discord.png", "discord"),
+            logo: imgPack("logos/socials/discord.png", "discord"),
         },
         {
             url: "https://www.twitter.com",
-            logo: imgPack("logos/twitter.png", "twitter"),
+            logo: imgPack("logos/socials/twitter.png", "twitter"),
         },
         {
             url: "https://www.youtube.com",
-            logo: imgPack("logos/youtube.png", "youtube"),
+            logo: imgPack("logos/socials/youtube.png", "youtube"),
         },
         {
             url: "https://www.medium.com",
-            logo: imgPack("logos/medium.png", "medium"),
+            logo: imgPack("logos/socials/medium.png", "medium"),
         },
     ],
 };

@@ -28,7 +28,7 @@ const Topbar = (props) => {
     const orderBurger = () => {
         let order = [...Array(contents.txts.items.length).keys()];
         order = order.filter(function (value) {
-            return value != props.page;
+            return value !== props.page;
         });
         order = order.sort(() => Math.random() - 0.5);
         order = [props.page, ...order];
@@ -39,8 +39,8 @@ const Topbar = (props) => {
         <header className={classes.Header}>
             <img
                 src={contents.imgs.logo.src}
-                className={classes.Image}
                 alt={contents.imgs.logo.alt}
+                className={appendBurger(classes.Image)}
             />
             <div className={appendBurger(classes.Container)}>
                 <nav className={appendBurger(classes.Navigator)}>
