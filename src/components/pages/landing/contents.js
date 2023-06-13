@@ -2,9 +2,14 @@ import { imgPack } from "src/helpers/imgs";
 
 const contents = {
     imgs: {
-        background: imgPack("backgrounds/landing.png", "landing"),
         redButton: imgPack("logos/button.png", "button"),
         intro: imgPack("backgrounds/intro.png", "intro"),
+        backgrounds: {
+            main: imgPack("backgrounds/landing.png", "landing"),
+            staticLeaves: imgPack("backgrounds/landing/leaves.first.jpg", "leaves-static"),
+            staticRiver: imgPack("backgrounds/landing/river.first.jpg", "river-static"),
+            staticLantern: imgPack("backgrounds/landing/lantern.first.jpg", "lantern-static"),
+        },
     },
     txts: {
         intro: {
@@ -14,9 +19,9 @@ const contents = {
         },
     },
     motions: {
-        lantern: imgPack("motions/lantern.mp4", "lantern"),
-        river: imgPack("motions/river.mp4", "river"),
-        leaves: imgPack("motions/leaves.mp4", "leaves"),
+        lantern: imgPack("motions/lantern.gif", "lantern"),
+        river: imgPack("motions/river.gif", "river"),
+        leaves: imgPack("motions/leaves.gif", "leaves"),
     },
 };
 

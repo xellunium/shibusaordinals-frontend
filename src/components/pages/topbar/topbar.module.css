@@ -4,14 +4,31 @@
     position: fixed;
     top: 0;
     right: 0;
-    background-color: var(--topbar-bg);
     z-index: var(--layer-4);
+    background-color: transparent;
+}
+
+.OpacityBackground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: var(--topbar-bg);
+    opacity: 0.5;
+}
+
+.BlurBackground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    backdrop-filter: blur(5px);
 }
 
 .Image {
     height: 150%;
     position: absolute;
-    left: 5%;
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
     z-index: var(--layer-5);
@@ -40,7 +57,7 @@
 }
 
 .Items:hover {
-    background-color: var(--topbar-bg-hover);
+    /* background-color: var(--topbar-bg-hover); */
     text-decoration: none;
 }
 
@@ -49,6 +66,7 @@
 }
 
 .Container {
+    max-width: calc((100vh - var(--topbar-h)) * var(--slope));
     width: 90%;
     height: 100%;
     top: 50%;
@@ -61,7 +79,7 @@
 .Navigator {
     text-align: right;
     box-sizing: border-box;
-    background-color: var(--topbar-bg);
+    background-color: transparent;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -91,6 +109,7 @@
     .Navigator.Responsive {
         position: relative;
         display: block;
+        background-color: var(--topbar-bg);
     }
     .Items.Responsive {
         padding-right: var(--size-2);
