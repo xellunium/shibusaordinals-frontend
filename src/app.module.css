@@ -10,6 +10,7 @@
     --topbar-bg-hover: var(--choco-1);
     --topbar-color: var(--gray-8);
     --slope: calc(1920 / 1080);
+    --text-color: var(--gray-11);
 }
 
 body {

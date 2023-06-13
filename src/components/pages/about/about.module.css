@@ -1,0 +1,25 @@
+.Container {
+    width: 100%;
+    min-height: calc(100vh - var(--topbar-h));
+    max-width: calc((100vh - var(--topbar-h)) * var(--slope));
+    position: relative;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    overflow: hidden;
+    margin-top: var(--topbar-h);
+}
+
+.Background {
+    width: calc((100vh - var(--topbar-h)) * var(--slope));
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.Text {
+    position: relative;
+    width: 100%;
+    color: var(--text-color);
+    direction: ltr;
+}

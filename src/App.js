@@ -6,7 +6,7 @@ import Lore from "src/components/pages/lore";
 import smoothScroll from "src/helpers/animations/smoothScroll";
 import barCfg from "src/configs/topbar";
 import Gallery from "src/components/pages/gallery";
-// import About from "src/components/pages/about";
+import About from "src/components/pages/about";
 // import Mint from "src/components/pages/mint";
 // import Footer from "src/components/pages/footer";
 
@@ -120,22 +120,20 @@ const App = () => {
     return (
         <div className={classes.Container}>
             <Topbar page={page} setPage={scrollPage} />
-            <Landing
+            {/* <Landing
                 active={page === 0}
                 resized={resized}
                 page={page}
                 reference={pageRefs[0]}
             />
             <Lore active={page === 1} page={page} reference={pageRefs[1]} />
-            {/* <Lore active={page === 2} page={page} reference={pageRefs[2]} /> */}
             <Gallery
                 active={page === 2}
                 resized={resized}
                 page={page}
                 reference={pageRefs[2]}
-            />
-
-            {/* <About active={page === 3} page={page} /> */}
+            /> */}
+            <About active={page === 0} page={page} reference={pageRefs[0]}/>
             {/* <Mint active={page === 4} page={page} /> */}
             {/* <Footer /> */}
         </div>
