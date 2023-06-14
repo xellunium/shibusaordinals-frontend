@@ -120,7 +120,7 @@ const App = () => {
     return (
         <div className={classes.Container}>
             <Topbar page={page} setPage={scrollPage} />
-            {/* <Landing
+            <Landing
                 active={page === 0}
                 resized={resized}
                 page={page}
@@ -132,8 +132,8 @@ const App = () => {
                 resized={resized}
                 page={page}
                 reference={pageRefs[2]}
-            /> */}
-            <About active={page === 0} page={page} reference={pageRefs[0]}/>
+            />
+            {/* <About active={page === 0} page={page} reference={pageRefs[0]}/> */}
             {/* <Mint active={page === 4} page={page} /> */}
             {/* <Footer /> */}
         </div>

@@ -5,8 +5,8 @@
 :root {
     --topbar-h: var(--size-10);
     --footer-h: var(--size-9);
-    --background-color: var(--choco-2);
-    --topbar-bg: var(--choco-3);
+    --background-color: var(--sand-1);
+    --topbar-bg: var(--sand-1);
     --topbar-bg-hover: var(--choco-1);
     --topbar-color: var(--gray-8);
     --slope: calc(1920 / 1080);

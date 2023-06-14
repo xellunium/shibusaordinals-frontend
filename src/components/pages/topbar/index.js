@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./topbar.module.css";
 import contents from "./contents";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBurger } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { appendConditionalClass } from "src/helpers/utils";
 
 const Topbar = (props) => {
@@ -68,7 +68,7 @@ const Topbar = (props) => {
                         )}
                         onClick={burgerToggle}
                     >
-                        <FontAwesomeIcon icon={faBurger} />
+                        <FontAwesomeIcon icon={faBars} />
                     </button>
                     {elements()}
                 </nav>
