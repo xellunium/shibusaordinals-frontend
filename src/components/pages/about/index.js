@@ -5,6 +5,8 @@ import {
     appendConditionalClass,
     updateInnerHtmlFromFile,
 } from "src/helpers/utils";
+import cfg from "src/configs/about";
+import topbarCfg from "src/configs/topbar";
 import getBoundings from "src/helpers/dom/getBoundings/index";
 
 const About = (props) => {
@@ -15,12 +17,12 @@ const About = (props) => {
     const checkHeight = (idx) => {
         if (!cardsRef) return false;
         if (!cardsRef.current) return false;
-        if (!mobileView()) return false;
-        return getBoundings(cardsRef, `${idx}`).top <= 0;
+        // if (!mobileView()) return false;
+        return getBoundings(cardsRef, `${idx}`).top <= topbarCfg.height;
     };
 
     const mobileView = () => {
-        return window.innerWidth < 666;
+        return window.innerWidth < topbarCfg.mobileViewWidth;
     };
 
     const checkEnded = (idx) => {
@@ -29,7 +31,10 @@ const About = (props) => {
         const boundings = getBoundings(cardsRef, `${idx}`);
         return (
             boundings.top + boundings.height <
-            window.innerWidth *  0.4 * 0.8 + 80
+            window.innerWidth *
+                cfg.secondDivPercentage *
+                cfg.imgWidthPercentage +
+                topbarCfg.height
         );
     };
 
@@ -83,6 +88,11 @@ const About = (props) => {
                 src={contents.imgs.background.src}
                 alt={contents.imgs.background.alt}
                 className={classes.Background}
+            />
+            <img
+                src={contents.imgs.background.src}
+                alt={contents.imgs.background.alt}
+                className={classes.BackgroundPrim}
             />
             <div className={classes.Text} ref={aboutRef}>
                 <p />
