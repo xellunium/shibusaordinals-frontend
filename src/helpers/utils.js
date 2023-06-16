@@ -1,3 +1,6 @@
+import domSelector from "src/helpers/dom/domSelector/index";
+import { readFile } from "src/helpers/files/index";
+
 /**
  *
  * conditional appending class to array of classes
@@ -29,4 +32,25 @@ const getLeftsArray = (params) => {
     });
 };
 
-export { appendConditionalClass, getWidthsArray, getLeftsArray };
+/**
+ *
+ * @param {path of the html file} filePath
+ * @param {React ref of the root element} reference
+ * @param {string of child order separated by '-' from the root element} childMap
+ */
+const updateInnerHtmlFromFile = (filePath, reference, childMap = "") => {
+    readFile(filePath, (html) => {
+        let component = domSelector(reference, childMap);
+        // console.log('')
+        // console.log(`${filePath} -- ${childMap} -- ${html}`)
+        // console.log(component)
+        component.innerHTML = html;
+    });
+};
+
+export {
+    appendConditionalClass,
+    getWidthsArray,
+    getLeftsArray,
+    updateInnerHtmlFromFile,
+};

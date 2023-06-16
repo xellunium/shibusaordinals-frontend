@@ -21,6 +21,7 @@ const App = () => {
     const [page, setPage] = useState(0);
     const [resized, setResized] = useState(false);
     const [clicked, setClicked] = useState(false);
+    const [pageOffset, setPageOffset] = useState(0);
     const offset = useRef(0);
 
     useEffect(() => {
@@ -70,6 +71,7 @@ const App = () => {
                 return ret;
             };
             offset.current = window.pageYOffset;
+            setPageOffset(window.pageYOffset);
             // setOffset(window.pageYOffset);
             let pagePrim = 1e-12;
             for (let index of pageRefs.keys())
@@ -120,7 +122,7 @@ const App = () => {
     return (
         <div className={classes.Container}>
             <Topbar page={page} setPage={scrollPage} />
-            <Landing
+            {/* <Landing
                 active={page === 0}
                 resized={resized}
                 page={page}
@@ -132,8 +134,13 @@ const App = () => {
                 resized={resized}
                 page={page}
                 reference={pageRefs[2]}
+            /> */}
+            <About
+                active={page === 0}
+                page={page}
+                reference={pageRefs[0]}
+                pageOffset={pageOffset}
             />
-            {/* <About active={page === 0} page={page} reference={pageRefs[0]}/> */}
             {/* <Mint active={page === 4} page={page} /> */}
             {/* <Footer /> */}
         </div>

@@ -7,7 +7,7 @@ const smoothScroll = (params) => {
     const scrollOnNextTick = (timestamp) => {
         let ratio = (timestamp - startTime) / duration;
         if (ratio < 1.0) {
-            console.log(`scrolling, ratio = ${ratio}`);
+            // console.log(`scrolling, ratio = ${ratio}`);
             window.scrollTo(
                 initX + (x - initX) * ratio,
                 initY + (y - initY) * ratio

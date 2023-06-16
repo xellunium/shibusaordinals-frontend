@@ -23,3 +23,75 @@
     color: var(--text-color);
     direction: ltr;
 }
+
+p {
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 0 5%;
+}
+
+p > h3 {
+    text-align: center;
+}
+
+.CardsHolder {
+    width: 100%;
+    position: relative;
+    direction: ltr;
+    color: var(--text-color);
+}
+
+.Card {
+    position: relative;
+    width: 100%;
+    min-height: 40vh;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 50px;
+}
+
+.CardTextWrapper {
+    width: 60%;
+    height: 100%;
+    display: inline-block;
+}
+
+.CardImageWrapper {
+    width: 40%;
+    display: inline-block;
+    /* background-color: aqua; */
+    position: relative;
+    top: var(--topbar-h);
+}
+
+.CardImageWrapper > img {
+    width: 80%;
+    border-radius: 100vw;
+    margin: 0 auto;
+    display: block;
+}
+
+.StickTop {
+    position: fixed;
+    top: var(--topbar-h);
+    right: 0;
+}
+
+.StickBottom {
+    align-self: flex-end;
+    top: 0;
+    bottom: 0;
+}
+
+@media screen and (max-width: 666px) {
+    .Card {
+        margin-bottom: 10px;
+    }
+    .CardTextWrapper {
+        width: 60%;
+    }
+    .CardImageWrapper {
+        width: 40%;
+    }
+}
+ 
