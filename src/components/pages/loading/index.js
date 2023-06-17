@@ -7,6 +7,7 @@ import cfg from "src/configs/loading";
 const LoadingSreen = (props) => {
     const [pageLoaded, setPageLoaded] = useState(false);
     const [completed, setCompleted] = useState(false);
+    const [percentage, setPercentage] = useState(0);
     const onLoad = () => {
         setPageLoaded(true);
     };
@@ -22,6 +23,7 @@ const LoadingSreen = (props) => {
 
     useEffect(() => {
         console.log(`another page has been loaded: ${props.loadingState}`);
+        setPercentage(props.loadingState / cfg.totalPages * 100);
         if (props.loadingState >= cfg.totalPages) {
             setCompleted(true);
         }
@@ -35,7 +37,7 @@ const LoadingSreen = (props) => {
                 src={contents.imgs.background.src}
                 alt={contents.imgs.background.alt}
             />
-            <p>Loading...</p>
+            <p>Loading {`${percentage}%`}...</p>
         </section>
     );
 };
