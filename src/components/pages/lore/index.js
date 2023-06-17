@@ -14,13 +14,14 @@ const Lore = (props) => {
     };
 
     useEffect(() => {
+        props.onLoad();
+    }, []);
+
+    useEffect(() => {
         /**
          * animation state manager
          */
-        if (
-            animation === 0 &&
-            props.active
-        ) {
+        if (animation === 0 && props.active) {
             setAnimation(1);
         }
     }, [props.active, animation]);

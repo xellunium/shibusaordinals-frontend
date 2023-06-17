@@ -6,7 +6,8 @@
     margin: 0 auto;
     background-color: var(--background-color);
     overflow: hidden;
-    margin-top: var(--topbar-h);
+    padding-top: var(--topbar-h);
+    /* margin-top: var(--topbar-h); */
 }
 
 .Background {

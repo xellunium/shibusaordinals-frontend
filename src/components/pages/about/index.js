@@ -80,6 +80,7 @@ const About = (props) => {
                 `${i}-0-1`
             );
         }
+        props.onLoad()
     }, []);
 
     return (

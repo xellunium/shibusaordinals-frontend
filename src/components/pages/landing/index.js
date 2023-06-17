@@ -32,6 +32,10 @@ const Landing = (props) => {
     //     console.log("lantern height: " + lanternOverlayRef.current.style.top);
     // }, [props.resized]);
 
+    useEffect(() => {
+        props.onLoad()
+    }, []);
+
     const startMotion = () => {
         if (clicked) return;
         console.log("motion started");

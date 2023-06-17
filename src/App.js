@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import classes from "./app.module.css";
+import Loading from "src/components/pages/loading"
 import Topbar from "src/components/pages/topbar";
 import Landing from "src/components/pages/landing";
 import Lore from "src/components/pages/lore";
@@ -22,7 +23,14 @@ const App = () => {
     const [resized, setResized] = useState(false);
     const [clicked, setClicked] = useState(false);
     const [pageOffset, setPageOffset] = useState(0);
+    const [loadingState, setLoadingState] = useState(0);
     const offset = useRef(0);
+    const windowState = useRef(0);
+
+    const increaseState = () => {
+        windowState.current += 1;
+        setLoadingState(windowState.current);
+    };
 
     useEffect(() => {
         let timeout, clickTimeout;
@@ -121,25 +129,34 @@ const App = () => {
 
     return (
         <div className={classes.Container}>
+            <Loading loadingState={loadingState} />
             <Topbar page={page} setPage={scrollPage} />
-            {/* <Landing
+            <Landing
                 active={page === 0}
                 resized={resized}
                 page={page}
                 reference={pageRefs[0]}
+                onLoad={increaseState}
             />
-            <Lore active={page === 1} page={page} reference={pageRefs[1]} />
+            <Lore
+                active={page === 1}
+                page={page}
+                reference={pageRefs[1]}
+                onLoad={increaseState}
+            />
             <Gallery
                 active={page === 2}
                 resized={resized}
                 page={page}
                 reference={pageRefs[2]}
-            /> */}
+                onLoad={increaseState}
+            />
             <About
-                active={page === 0}
+                active={page === 3}
                 page={page}
-                reference={pageRefs[0]}
+                reference={pageRefs[3]}
                 pageOffset={pageOffset}
+                onLoad={increaseState}
             />
             {/* <Mint active={page === 4} page={page} /> */}
             {/* <Footer /> */}

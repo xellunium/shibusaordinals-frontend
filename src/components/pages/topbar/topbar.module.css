@@ -6,6 +6,7 @@
     right: 0;
     z-index: var(--layer-4);
     background-color: transparent;
+    direction: rtl;
 }
 
 .OpacityBackground {
@@ -49,7 +50,7 @@
     text-align: center;
     cursor: pointer;
     box-sizing: border-box;
-    font-family: "IranSans";
+    font-family: "Tsukimi";
     padding-right: var(--size-2);
     font-size: var(--size-4);
     padding: 0 var(--size-2);

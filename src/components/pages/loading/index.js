@@ -1,0 +1,43 @@
+import classes from "./loading.module.css";
+import contents from "./contents";
+import { useEffect } from "react";
+import { useState } from "react";
+import cfg from "src/configs/loading";
+
+const LoadingSreen = (props) => {
+    const [pageLoaded, setPageLoaded] = useState(false);
+    const [completed, setCompleted] = useState(false);
+    const onLoad = () => {
+        setPageLoaded(true);
+    };
+
+    useEffect(() => {
+        if (document.readyState === "complete") {
+            onLoad();
+        } else {
+            window.addEventListener("load", onLoad);
+            return () => window.removeEventListener("load", onLoad);
+        }
+    }, []);
+
+    useEffect(() => {
+        console.log(`another page has been loaded: ${props.loadingState}`);
+        if (props.loadingState >= cfg.totalPages) {
+            setCompleted(true);
+        }
+    }, [props.loadingState]);
+
+    return pageLoaded && completed ? (
+        <div className={classes.None} />
+    ) : (
+        <section className={classes.Container}>
+            <img
+                src={contents.imgs.background.src}
+                alt={contents.imgs.background.alt}
+            />
+            <p>Loading...</p>
+        </section>
+    );
+};
+
+export default LoadingSreen;

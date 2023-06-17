@@ -61,6 +61,10 @@ const Gallery = (props) => {
     );
 
     useEffect(() => {
+        props.onLoad()
+    }, []);
+
+    useEffect(() => {
         for (let idx in imgRefs) {
             // console.log(`widths[${idx}] = ${widths[idx]}`);
             // console.log(`lefts[${idx}] = ${lefts[idx]}`);
@@ -82,7 +86,7 @@ const Gallery = (props) => {
                     );
             }
         }
-    }, [widths, lefts, props.resized]);
+    }, [widths, props.resized]);
 
     const onPress = (idx) => {
         if (animating.current) return;
@@ -102,35 +106,40 @@ const Gallery = (props) => {
         // set the animating to true
         animating.current = true;
 
+        let init = [...lefts, ...widths];
+        let dest = [...nextLefts, ...nextWidths];
+
         smoothTransitionArray({
-            initArr: lefts,
-            destArr: nextLefts,
+            initArr: init,
+            destArr: dest,
             duration: 500,
             updateFn: (arr) => {
-                setLefts(arr);
+                setLefts(arr.slice(0, cfg.n));
+                setWidths(arr.slice(cfg.n));
             },
             closureFn: () => {
                 animating.current = false;
             },
         });
-        smoothTransitionArray({
-            initArr: widths,
-            destArr: nextWidths,
-            duration: 500,
-            updateFn: (arr) => {
-                setWidths(arr);
-            },
-            closureFn: () => {
-                animating.current = false;
-            },
-        });
+        // smoothTransitionArray({
+        //     initArr: widths,
+        //     destArr: nextWidths,
+        //     duration: 500,
+        //     updateFn: (arr) => {
+        //         setWidths(arr);
+        //     },
+        //     closureFn: () => {
+        //         animating.current = false;
+        //     },
+        // });
     };
 
     const actionRight = () => {
+        currentImgs.current[index] =
+            contents.imgs.gallery[(imgIndex.current + cfg.n) % cfg.totalImages];
         imgIndex.current = (imgIndex.current + 1) % cfg.totalImages;
-        // currentImgs.current[index] = contents.imgs.gallery[imgIndex.current];
         setIndex((index + 1) % cfg.n);
-        console.log(`current image index: ${imgIndex.current}`);
+        // console.log(`current image index: ${imgIndex.current}`);
         transition({
             nextWidths: [
                 widths[widths.length - 1],
@@ -144,10 +153,12 @@ const Gallery = (props) => {
     };
 
     const actionLeft = () => {
+        currentImgs.current[(index + cfg.n - 1) % cfg.n] =
+            contents.imgs.gallery[
+                (imgIndex.current - 1 + cfg.totalImages) % cfg.totalImages
+            ];
         imgIndex.current =
             (imgIndex.current - 1 + cfg.totalImages) % cfg.totalImages;
-        // currentImgs.current[(index + cfg.n - 1) % cfg.n] =
-        // contents.imgs.gallery[(imgIndex.current + cfg.n - 1) % cfg.totalImages];
         setIndex((index - 1 + cfg.n) % cfg.n);
         transition({
             nextWidths: [...widths.slice(1), widths[0]],
@@ -174,7 +185,11 @@ const Gallery = (props) => {
                 />
             ) : (
                 <img
-                    className={appendConditionalClass(true, classes.Image, classes.Blur)}
+                    className={appendConditionalClass(
+                        true,
+                        classes.Image,
+                        classes.Blur
+                    )}
                     src={img.src}
                     alt={img.alt}
                     key={`img-${idx}`}

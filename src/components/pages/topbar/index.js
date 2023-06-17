@@ -30,6 +30,7 @@ const Topbar = (props) => {
     };
 
     useEffect(() => {
+        if (props.page >= items.length) return;
         setItems([
             props.page,
             ...items.filter((value) => value !== props.page),
