@@ -9,7 +9,6 @@ import smoothScroll from "src/helpers/animations/smoothScroll";
 import barCfg from "src/configs/topbar";
 import Gallery from "src/components/pages/gallery";
 import About from "src/components/pages/about";
-import getBoundings from "src/helpers/dom/getBoundings";
 import pageDetector from "src/helpers/pages/pageDetector";
 // import Mint from "src/components/pages/mint";
 // import Footer from "src/components/pages/footer";
@@ -27,7 +26,6 @@ const App = () => {
     const [clicked, setClicked] = useState(false);
     const [pageOffset, setPageOffset] = useState(0);
     const [loadingState, setLoadingState] = useState(0);
-    const offset = useRef(0);
     const windowState = useRef(0);
     const mainDiv = useRef(null);
 
@@ -93,40 +91,46 @@ const App = () => {
     return (
         <>
             <Loading loadingState={loadingState} />
-            <div className={classes.Container} ref={mainDiv}>
-                <Topbar page={page} setPage={scrollPage} clicked={clicked} />
-                <Landing
-                    active={page === 0}
-                    resized={resized}
-                    page={page}
-                    reference={pageRefs[0]}
-                    onLoad={increaseState}
-                />
-                <Gap />
-                <Lore
-                    active={page === 1}
-                    page={page}
-                    reference={pageRefs[1]}
-                    onLoad={increaseState}
-                />
-                <Gap />
-                <Gallery
-                    active={page === 2}
-                    resized={resized}
-                    page={page}
-                    reference={pageRefs[2]}
-                    onLoad={increaseState}
-                />
-                <Gap />
-                <About
-                    active={page === 3}
-                    page={page}
-                    reference={pageRefs[3]}
-                    pageOffset={pageOffset}
-                    onLoad={increaseState}
-                />
-                {/* <Mint active={page === 4} page={page} /> */}
-                {/* <Footer /> */}
+            <div className={classes.Canvas}>
+                <div class={classes.Container} ref={mainDiv}>
+                    <Topbar
+                        page={page}
+                        setPage={scrollPage}
+                        clicked={clicked}
+                    />
+                    <Landing
+                        active={page === 0}
+                        resized={resized}
+                        page={page}
+                        reference={pageRefs[0]}
+                        onLoad={increaseState}
+                    />
+                    <Gap />
+                    <Lore
+                        active={page === 1}
+                        page={page}
+                        reference={pageRefs[1]}
+                        onLoad={increaseState}
+                    />
+                    <Gap />
+                    <Gallery
+                        active={page === 2}
+                        resized={resized}
+                        page={page}
+                        reference={pageRefs[2]}
+                        onLoad={increaseState}
+                    />
+                    <Gap />
+                    <About
+                        active={page === 3}
+                        page={page}
+                        reference={pageRefs[3]}
+                        pageOffset={pageOffset}
+                        onLoad={increaseState}
+                    />
+                    {/* <Mint active={page === 4} page={page} /> */}
+                    {/* <Footer /> */}
+                </div>
             </div>
         </>
     );

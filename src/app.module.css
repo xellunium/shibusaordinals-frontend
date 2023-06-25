@@ -33,28 +33,29 @@
     font-style: normal;
 }
 
-.Container {
+
+.Canvas {
     height: 100vh;
     width: 100vw;
+    position: relative;
+}
+
+
+.Container {
+    height: 100vh;
+    max-width: calc((100vh - var(--topbar-h)) * var(--slope));
+    margin: 0 auto;
     position: relative;
     overflow-x: hidden;
     overflow-y: auto;
     perspective: 2px;
 }
 
-.Container > section:nth-child(Even) {
+.Container > section {
     position: relative;
     margin: 0 auto;
-    /* min-height: calc(100vh - var(--topbar-h)); */
     min-height: 100vh;
-    max-width: calc((100vh - var(--topbar-h)) * var(--slope));
     transform-style: preserve-3d;
-
-    /* position: relative;
-    width: 100%;
-    min-height: calc(100vh - var(--topbar-h));
-    min-height: calc(100vh);
-    z-index: 1; */
 }
 
 .Container > section > div:first-of-type {
@@ -64,8 +65,15 @@
     right: 0;
     bottom: 0;
     left: 0;
+}
+
+/* .Container > section:nth-child(even) > div:first-of-type {
     transform: translateZ(-1px) scale(1.5);
 }
+
+.Container > section:nth-child(odd) > div:first-of-type {
+    transform: translateZ(-3px) scale(3);
+} */
 
 .Container > section > div:nth-of-type(2) {
     width: 100%;

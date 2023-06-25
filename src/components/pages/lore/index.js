@@ -27,7 +27,7 @@ const Lore = (props) => {
     }, [props.active, animation]);
 
     return (
-        <section ref={props.reference}>
+        <section className={classes.Section} ref={props.reference}>
             <div className={classes.Background}>
                 <img
                     className={classes.BackgroundImage}

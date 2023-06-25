@@ -1,7 +1,12 @@
+.Section {
+    z-index: -1;
+}
+
 .Background {
+    transform: translateZ(-4px) scale(3);
     background-image: url("/assets/backgrounds/about.png");
     background-size: cover;
-    background-position: top right;
+    background-position: bottom right;
 }
 
 /* .BackgroundImgPrim {

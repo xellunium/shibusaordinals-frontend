@@ -7,7 +7,7 @@
 }
 
 .Background {
-    z-index: 1;
+    transform: translateZ(-1px) scale(1.5);
 }
 
 .ImageBackground {

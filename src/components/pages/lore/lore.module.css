@@ -1,13 +1,11 @@
 .Section {
-    z-index: 2;
 }
 
 .Container {
-    z-index: 2;
 }
 
 .Background {
-    z-index: 2;
+    transform: translateZ(-3px) scale(3);
 }
 
 .BackgroundImage {
@@ -16,7 +14,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
 }
 
 .LoreImage {
