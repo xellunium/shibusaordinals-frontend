@@ -50,7 +50,7 @@ const updateInnerHtmlFromFile = (filePath, reference, childMap = "") => {
 };
 
 const mobileView = () => {
-    return window.innerWidth < cfg.mobileWidth
+    return window.innerWidth < cfg.mobileWidth;
 };
 
 export {
