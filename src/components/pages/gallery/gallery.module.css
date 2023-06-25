@@ -8,6 +8,8 @@
 
 .Background {
     transform: translateZ(-1px) scale(1.5);
+    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+    -webkit-clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
 }
 
 .ImageBackground {

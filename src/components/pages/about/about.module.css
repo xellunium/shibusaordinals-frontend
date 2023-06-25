@@ -4,7 +4,7 @@
 
 .Background {
     transform: translateZ(-4px) scale(3);
-    background-image: url("/assets/backgrounds/about.png");
+    background-image: url("/assets/backgrounds/about.webp");
     background-size: cover;
     background-position: bottom right;
 }

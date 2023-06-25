@@ -2,7 +2,7 @@ import { imgPack } from "src/helpers/imgs";
 
 const contents = {
     imgs: {
-        background: imgPack("backgrounds/about.png", "about-bg"),
+        background: imgPack("backgrounds/about.webp", "about-bg"),
     },
     txts: {
         about: {

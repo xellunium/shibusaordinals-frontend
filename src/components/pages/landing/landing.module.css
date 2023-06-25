@@ -2,8 +2,13 @@
     z-index: 3;
 }
 
+.Background {
+    transform: translateZ(-1px) scale(1.5);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+}
+
 .Container > img {
-    z-index: var(--layer-important);
     cursor: pointer;
     height: 100%;
     position: absolute;
