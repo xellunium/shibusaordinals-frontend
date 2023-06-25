@@ -1,5 +1,6 @@
 import domSelector from "src/helpers/dom/domSelector/index";
 import { readFile } from "src/helpers/files/index";
+import cfg from "src/configs/main";
 
 /**
  *
@@ -48,9 +49,14 @@ const updateInnerHtmlFromFile = (filePath, reference, childMap = "") => {
     });
 };
 
+const mobileView = () => {
+    return window.innerWidth < cfg.mobileWidth
+};
+
 export {
     appendConditionalClass,
     getWidthsArray,
     getLeftsArray,
     updateInnerHtmlFromFile,
+    mobileView,
 };

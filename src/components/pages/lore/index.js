@@ -27,17 +27,22 @@ const Lore = (props) => {
     }, [props.active, animation]);
 
     return (
-        <section className={classes.Container} ref={props.reference}>
-            <img
-                className={classes.BackgroundImage}
-                src={contents.imgs.background.src}
-                alt={contents.imgs.background.alt}
-            />
-            <img
-                className={appendAnimation(classes.LoreImage)}
-                src={contents.imgs.lore.src}
-                alt={contents.imgs.lore.alt}
-            />
+        <section ref={props.reference}>
+            <div className={classes.Background}>
+                <img
+                    className={classes.BackgroundImage}
+                    src={contents.imgs.background.src}
+                    alt={contents.imgs.background.alt}
+                />
+            </div>
+            <div className={classes.Container}>
+                <img
+                    className={classes.LoreImage}
+                    src={contents.imgs.lore.src}
+                    alt={contents.imgs.lore.alt}
+                />
+            </div>
+            
         </section>
     );
 };

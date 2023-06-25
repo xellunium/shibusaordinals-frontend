@@ -1,39 +1,39 @@
-.Container {
-    width: 100%;
-    min-height: calc(100vh - var(--topbar-h));
-    max-width: calc((100vh - var(--topbar-h)) * var(--slope));
-    position: relative;
-    margin: 0 auto;
-    padding: 0;
-    background-color: var(--background-color);
-    overflow: hidden;
-    margin-top: var(--topbar-h);
-
-    display: flex;
-    align-items: center;
-    /* text-align: end; */
-}
-
-.Canvas {
-    height: 100%;
-    width: calc((100vh- var(--topbar-h)) * var(--slope));
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.Section {
+    z-index: 3;
 }
 
 .Container > img {
+    z-index: var(--layer-important);
+    cursor: pointer;
     height: 100%;
     position: absolute;
-    min-width: calc((50vh- var(--topbar-h)) * var(--slope));
     top: 0;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.RedButton {
+.Background {
+    z-index: 3;
+    display: flex;
+    align-items: center;
+}
+
+.Background > img {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.RedButtonMotion {
+    mix-blend-mode: lighten;
     z-index: var(--layer-3);
+}
+
+.Hidden {
+    visibility: hidden;
+    z-index: var(--layer-4);
 }
 
 .TextImage {
@@ -41,6 +41,7 @@
 }
 
 .Motion {
+    visibility: visible;
     animation: Beeping 0.5s forwards;
 }
 
@@ -62,7 +63,7 @@
 
 .LeavesOverlay {
     position: absolute;
-    min-width: calc((50vh - var(--topbar-h)) * var(--slope));
+    min-width: calc((60vh - var(--topbar-h)) * var(--slope));
     right: 0;
     /* height: 100%; */
     /* position: relative; */
@@ -70,13 +71,13 @@
 
 .LanternOverlay {
     position: absolute;
-    min-width: calc((50vh - var(--topbar-h)) * var(--slope));
+    min-width: calc((60vh - var(--topbar-h)) * var(--slope));
     left: 0;
 }
 
 .RiverOverlay {
     position: absolute;
-    min-width: calc((50vh - var(--topbar-h)) * var(--slope));
+    min-width: calc((60vh - var(--topbar-h)) * var(--slope));
     bottom: 0;
     right: 0;
 }

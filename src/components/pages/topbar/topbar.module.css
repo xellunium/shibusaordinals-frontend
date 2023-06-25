@@ -1,7 +1,7 @@
 .Header {
     width: 100%;
     height: var(--topbar-h);
-    position: fixed;
+    position: sticky;
     top: 0;
     right: 0;
     z-index: var(--layer-4);
@@ -52,7 +52,7 @@
     box-sizing: border-box;
     font-family: "Tsukimi";
     padding-right: var(--size-2);
-    font-size: var(--size-4);
+    font-size: var(--size-3);
     padding: 0 var(--size-2);
     z-index: var(--layer-2);
 }

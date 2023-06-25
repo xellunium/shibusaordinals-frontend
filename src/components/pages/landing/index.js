@@ -1,12 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./landing.module.css";
 import contents from "./contents";
 import { appendConditionalClass } from "src/helpers/utils";
 
 const Landing = (props) => {
-    const lanternOverlayRef = useRef(null);
-    const riverOverlayRef = useRef(null);
-    const motionsRef = [useRef(null), useRef(null), useRef(null)];
     const [clicked, setClicked] = useState(false);
 
     // useEffect(() => {
@@ -33,73 +30,84 @@ const Landing = (props) => {
     // }, [props.resized]);
 
     useEffect(() => {
-        props.onLoad()
+        props.onLoad();
     }, []);
 
     const startMotion = () => {
         if (clicked) return;
         console.log("motion started");
         setClicked(true);
-        // for (let ref of motionsRef) {
-        //     ref.current.play();
-        // }
         setTimeout(() => {
             setClicked(false);
         }, 5000);
     };
 
     return (
-        <section className={classes.Container} ref={props.reference}>
-            <img
-                src={contents.imgs.backgrounds.main.src}
-                alt={contents.imgs.backgrounds.main.alt}
-            />
-            <img
-                alt={contents.imgs.redButton.alt}
-                src={contents.imgs.redButton.src}
-                className={appendConditionalClass(
-                    clicked,
-                    classes.Motion,
-                    classes.RedButton
-                )}
-                onClick={startMotion}
-            />
-            <img
-                alt={contents.imgs.intro.alt}
-                src={contents.imgs.intro.src}
-                className={classes.TextImage}
-            />
-            <div className={classes.LeavesOverlay}>
+        <section className={classes.Section} ref={props.reference}>
+            <div className={classes.Background}>
                 <img
-                    className={classes.MotionImage}
-                    src={
-                        clicked
-                            ? contents.motions.leaves.src
-                            : contents.imgs.backgrounds.staticLeaves.src
-                    }
-                    alt={contents.motions.leaves.alt}
+                    src={contents.imgs.backgrounds.main.src}
+                    alt={contents.imgs.backgrounds.main.alt}
                 />
-            </div>
-            <div className={classes.LanternOverlay}>
                 <img
-                    className={classes.MotionImage}
-                    src={
-                        clicked
-                            ? contents.motions.lantern.src
-                            : contents.imgs.backgrounds.staticLantern.src
-                    }
-                    alt={contents.motions.lantern.alt}
+                    alt={contents.imgs.redButton.alt}
+                    src={contents.imgs.redButton.src}
+                    className={appendConditionalClass(
+                        clicked,
+                        classes.Motion,
+                        classes.Hidden
+                    )}
                 />
-            </div>
-            <div className={classes.RiverOverlay}>
                 <img
-                    className={classes.MotionImage}
-                    src={
-                        clicked
-                            ? contents.motions.river.src
-                            : contents.imgs.backgrounds.staticRiver.src
-                    }
-                    alt={contents.motions.river.alt}
+                    alt={contents.motions.redButton.alt}
+                    src={contents.motions.redButton.src}
+                    className={appendConditionalClass(
+                        clicked,
+                        classes.Hidden,
+                        classes.RedButtonMotion
+                    )}
+                />
+
+                <div className={classes.LeavesOverlay}>
+                    <img
+                        className={classes.MotionImage}
+                        src={
+                            clicked
+                                ? contents.motions.leaves.src
+                                : contents.imgs.backgrounds.staticLeaves.src
+                        }
+                        alt={contents.motions.leaves.alt}
+                    />
+                </div>
+                <div className={classes.LanternOverlay}>
+                    <img
+                        className={classes.MotionImage}
+                        src={
+                            clicked
+                                ? contents.motions.lantern.src
+                                : contents.imgs.backgrounds.staticLantern.src
+                        }
+                        alt={contents.motions.lantern.alt}
+                    />
+                </div>
+                <div className={classes.RiverOverlay}>
+                    <img
+                        className={classes.MotionImage}
+                        src={
+                            clicked
+                                ? contents.motions.river.src
+                                : contents.imgs.backgrounds.staticRiver.src
+                        }
+                        alt={contents.motions.river.alt}
+                    />
+                </div>
+            </div>
+            <div className={classes.Container}>
+                <img
+                    alt={contents.imgs.intro.alt}
+                    src={contents.imgs.intro.src}
+                    className={classes.TextImage}
+                    onClick={startMotion}
                 />
             </div>
         </section>

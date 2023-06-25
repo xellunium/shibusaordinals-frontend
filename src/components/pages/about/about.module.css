@@ -1,32 +1,20 @@
-.Container {
-    width: 100%;
-    min-height: calc(100vh - var(--topbar-h));
-    max-width: calc((100vh - var(--topbar-h)) * var(--slope));
-    position: relative;
-    margin: 0 auto;
-    background-color: var(--background-color);
-    overflow: hidden;
-    padding-top: var(--topbar-h);
-    /* margin-top: var(--topbar-h); */
-}
-
 .Background {
-    width: calc((100vh - var(--topbar-h)) * var(--slope));
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    background-image: url("/assets/backgrounds/about.png");
+    background-size: cover;
+    background-position: top right;
 }
 
-.BackgroundPrim {
+/* .BackgroundImgPrim {
     width: calc((100vh - var(--topbar-h)) * var(--slope));
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-}
+    z-index: -1;
+} */
 
 .Text {
+    margin-top: var(--topbar-h);
     position: relative;
     width: 100%;
     color: var(--text-color);
@@ -70,6 +58,9 @@ p > h3 {
     width: 40%;
     display: inline-block;
     position: relative;
+    align-self: flex-start;
+    top: 0;
+    right: 0;
     /* top: calc(var(--topbar-h) * 0.5); */
 }
 
@@ -80,17 +71,22 @@ p > h3 {
     display: block;
 }
 
-.StickTop {
-    position: fixed;
-    top: var(--topbar-h);
-    right: 0;
-}
+/* .StickTop {
+    animation: goToCenter 2s ease-in forwards;
+} */
 
-.StickBottom {
+/* @keyframes goToCenter {
+    100% {
+        transform: translateY(100%);
+    }
+} */
+
+
+/* .StickBottom {
     align-self: flex-end;
     top: 0;
     bottom: 0;
-}
+} */
 
 @media screen and (max-width: 666px) {
     .Card {

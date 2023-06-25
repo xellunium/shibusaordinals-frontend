@@ -6,6 +6,7 @@ import {
     appendConditionalClass,
     getWidthsArray,
     getLeftsArray,
+    mobileView,
 } from "src/helpers/utils";
 import smoothTransitionArray from "src/helpers/animations/smoothTransitionArray";
 
@@ -61,7 +62,7 @@ const Gallery = (props) => {
     );
 
     useEffect(() => {
-        props.onLoad()
+        props.onLoad();
     }, []);
 
     useEffect(() => {
@@ -69,10 +70,9 @@ const Gallery = (props) => {
             // console.log(`widths[${idx}] = ${widths[idx]}`);
             // console.log(`lefts[${idx}] = ${lefts[idx]}`);
             let component = imgRefs[idx].current;
-            let width = Math.min(
-                window.innerWidth * 0.9,
-                window.innerHeight * 0.9
-            );
+            let width = mobileView()
+                ? window.innerWidth * 0.9
+                : Math.max(window.innerWidth * 0.35, window.innerHeight * 0.6);
             if (component) {
                 component.style.width = `${widths[idx] * width}px`;
                 component.style.height = `${widths[idx] * width}px`;
@@ -121,17 +121,6 @@ const Gallery = (props) => {
                 animating.current = false;
             },
         });
-        // smoothTransitionArray({
-        //     initArr: widths,
-        //     destArr: nextWidths,
-        //     duration: 500,
-        //     updateFn: (arr) => {
-        //         setWidths(arr);
-        //     },
-        //     closureFn: () => {
-        //         animating.current = false;
-        //     },
-        // });
     };
 
     const actionRight = () => {
@@ -201,13 +190,17 @@ const Gallery = (props) => {
     };
 
     return (
-        <section className={classes.Container} ref={props.reference}>
-            <img
-                className={classes.ImageBackground}
-                src={contents.imgs.background.src}
-                alt={contents.imgs.background.alt}
-            />
-            <nav className={classes.Navigation}>{elements()}</nav>
+        <section className={classes.Section} ref={props.reference}>
+            <div className={classes.Background}>
+                <img
+                    className={classes.ImageBackground}
+                    src={contents.imgs.background.src}
+                    alt={contents.imgs.background.alt}
+                />
+            </div>
+            <div className={classes.Container}>
+                <nav className={classes.Navigation}>{elements()}</nav>
+            </div>
         </section>
     );
 };

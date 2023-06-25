@@ -37,6 +37,12 @@ const Topbar = (props) => {
         ]);
     }, [props.page]);
 
+    useEffect(() => {
+        if (props.clicked) {
+            setBurger(0);
+        }
+    }, [props.clicked]);
+
     const elements = () => {
         return items.map((value, index) => {
             return (

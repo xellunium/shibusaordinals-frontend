@@ -80,31 +80,30 @@ const About = (props) => {
                 `${i}-0-1`
             );
         }
-        props.onLoad()
+        props.onLoad();
     }, []);
 
     return (
-        <section className={classes.Container} ref={props.reference}>
-            <img
-                src={contents.imgs.background.src}
-                alt={contents.imgs.background.alt}
-                className={classes.Background}
-            />
-            <img
-                src={contents.imgs.background.src}
-                alt={contents.imgs.background.alt}
-                className={classes.BackgroundPrim}
-            />
-            <div className={classes.Text} ref={aboutRef}>
-                <p />
-                <p />
+        <section className={classes.Section} ref={props.reference}>
+            <div className={classes.Background}>
+                <img
+                    src={contents.imgs.background.src}
+                    alt={contents.imgs.background.alt}
+                    className={classes.BackgroundImg}
+                />
             </div>
-            <div className={classes.Text} ref={teamRef}>
-                <p />
-                <p />
-            </div>
-            <div className={classes.CardsHolder} ref={cardsRef}>
-                {cards()}
+            <div className={classes.Container}>
+                <div className={classes.Text} ref={aboutRef}>
+                    <p />
+                    <p />
+                </div>
+                <div className={classes.Text} ref={teamRef}>
+                    <p />
+                    <p />
+                </div>
+                <div className={classes.CardsHolder} ref={cardsRef}>
+                    {cards()}
+                </div>
             </div>
         </section>
     );

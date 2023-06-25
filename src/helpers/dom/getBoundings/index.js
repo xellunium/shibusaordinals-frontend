@@ -6,7 +6,10 @@ const getBoundings = (reference, childMap) => {
         const component = stack.pop();
         stack.push(component.children[child]);
     }
-    return stack.pop().getBoundingClientRect();
+    let res = stack.pop();
+    if (!res || !res.getBoundingClientRect) return null;
+    // console.log(res.getBoundingClientRect())
+    return res.getBoundingClientRect();
 };
 
 export default getBoundings;

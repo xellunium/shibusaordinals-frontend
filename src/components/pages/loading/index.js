@@ -24,7 +24,7 @@ const LoadingSreen = (props) => {
     useEffect(() => {
         console.log(`another page has been loaded: ${props.loadingState}`);
         setPercentage(props.loadingState / cfg.totalPages * 100);
-        if (props.loadingState >= cfg.totalPages) {
+        if (props.loadingState >= cfg.totalPages * 1.5) {
             setCompleted(true);
         }
     }, [props.loadingState]);

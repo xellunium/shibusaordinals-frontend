@@ -1,21 +1,22 @@
+.Section {
+    z-index: 2;
+}
+
 .Container {
-    width: 100%;
-    min-height: calc(100vh - var(--topbar-h));
-    max-width: calc((100vh - var(--topbar-h)) * var(--slope));
-    position: relative;
-    margin: 0 auto;
-    background-color: var(--background-color);
-    overflow: hidden;
-    /* margin-top: var(--topbar-h); TODO */
+    z-index: 2;
+}
+
+.Background {
+    z-index: 2;
 }
 
 .BackgroundImage {
     height: 100%;
     position: absolute;
-    background-size: cover;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
 .LoreImage {
@@ -23,13 +24,13 @@
     width: 100%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 0%);
-    z-index: var(--layer-1);
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
-.LoreImage.Animated {
-    animation: Login 2s linear forwards;
-}
+/* .LoreImage.Animated { */
+/* animation: Login 2s linear forwards; */
+/* } */
 
 @keyframes Login {
     0% {

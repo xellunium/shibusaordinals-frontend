@@ -22,6 +22,7 @@ const contents = {
         lantern: imgPack("motions/lantern.gif", "lantern"),
         river: imgPack("motions/river.gif", "river"),
         leaves: imgPack("motions/leaves.gif", "leaves"),
+        redButton: imgPack("motions/redButton.gif", "button")
     },
 };
 

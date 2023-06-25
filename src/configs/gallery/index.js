@@ -1,5 +1,5 @@
 const config = {
-    n: 7,
+    n: 5,
     biggestRatio: 0.7,
     deltaRatio: 0.2,
     totalImages: 13,
