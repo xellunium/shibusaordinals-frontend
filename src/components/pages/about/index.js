@@ -142,7 +142,7 @@ const About = (props) => {
     return (
         <section className={classes.Section} ref={props.reference}>
             <div className={classes.Background} ref={backgroundRef}>
-                {backgrounds()}
+                {/* {backgrounds()} */}
             </div>
 
             <div className={classes.Container}>

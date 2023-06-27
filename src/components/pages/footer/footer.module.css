@@ -19,7 +19,6 @@
     margin: 50px auto;
     height: var(--footer-h);
     text-align: center;
-    box-sizing: border-box;
 }
 
 .LogoWrapper {
