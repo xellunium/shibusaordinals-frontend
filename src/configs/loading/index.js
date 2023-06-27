@@ -1,5 +1,5 @@
 const config = {
-    totalPages: 4
+    totalPages: 5
 };
 
 export default config;

@@ -90,7 +90,7 @@ const App = () => {
 
     return (
         <>
-            {/* <Loading loadingState={loadingState} /> */}
+            <Loading loadingState={loadingState} />
             <div className={classes.Canvas}>
                 <div className={classes.Container} ref={mainDiv}>
                     <Topbar
