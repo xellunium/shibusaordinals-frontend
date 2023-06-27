@@ -25,6 +25,7 @@
 .LogoWrapper {
     display: inline-block;
     height: 100%;
+    width: var(--footer-h);
     margin-right: 10px;
     text-align: center;
 }
@@ -43,6 +44,9 @@
 @media screen and (max-width: 666px) {
     .Navigator {
         height: var(--size-8);
+    }
+    .LogoWrapper {
+        width: var(--size-8);
     }
 }
  

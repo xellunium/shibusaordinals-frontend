@@ -39,13 +39,19 @@ const getLeftsArray = (params) => {
  * @param {React ref of the root element} reference
  * @param {string of child order separated by '-' from the root element} childMap
  */
-const updateInnerHtmlFromFile = (filePath, reference, childMap = "") => {
+const updateInnerHtmlFromFile = (
+    filePath,
+    reference,
+    childMap = "",
+    callback = () => {}
+) => {
     readFile(filePath, (html) => {
         let component = domSelector(reference, childMap);
         // console.log('')
         // console.log(`${filePath} -- ${childMap} -- ${html}`)
         // console.log(component)
         component.innerHTML = html;
+        callback();
     });
 };
 

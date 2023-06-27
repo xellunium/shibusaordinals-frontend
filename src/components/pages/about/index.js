@@ -64,28 +64,47 @@ const About = (props) => {
         });
     };
 
+    const modifier = () => {
+        if (window.innerWidth < 350) {
+            return 0.7;
+        }
+        return 0.8
+    };
+
     useEffect(() => {
+        const setHeight = () => {
+            backgroundRef.current.style.height = `${
+                getBoundings(props.reference, "1").height * modifier()
+            }px`;
+            // console.log('Hooray!')
+        };
+        let timeout = setTimeout(setHeight, 500);
+        const resetTimeout = () => {
+            clearTimeout(timeout);
+            timeout = setTimeout(setHeight, 500);
+        };
+        
         // fetching data: {texts and cards}
-        updateInnerHtmlFromFile(contents.txts.about.title, aboutRef, "0");
-        updateInnerHtmlFromFile(contents.txts.about.body, aboutRef, "1");
-        updateInnerHtmlFromFile(contents.txts.team.title, teamRef, "0");
-        updateInnerHtmlFromFile(contents.txts.team.body, teamRef, "1");
+        updateInnerHtmlFromFile(contents.txts.about.title, aboutRef, "0", resetTimeout);
+        updateInnerHtmlFromFile(contents.txts.about.body, aboutRef, "1", resetTimeout);
+        updateInnerHtmlFromFile(contents.txts.team.title, teamRef, "0", resetTimeout);
+        updateInnerHtmlFromFile(contents.txts.team.body, teamRef, "1", resetTimeout);
         for (let i in contents.team) {
             updateInnerHtmlFromFile(
                 contents.team[i].title,
                 cardsRef,
-                `${i}-0-0`
+                `${i}-0-0`,
+                resetTimeout
             );
             updateInnerHtmlFromFile(
                 contents.team[i].body,
                 cardsRef,
-                `${i}-0-1`
+                `${i}-0-1`,
+                resetTimeout
             );
         }
-        backgroundRef.current.style.height = `${
-            getBoundings(props.reference, "1").height * 0.8
-        }px`;
         props.onLoad();
+        return clearTimeout(timeout);
     }, [props.resized]);
 
     const backgrounds = () => {
