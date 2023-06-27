@@ -8,11 +8,13 @@ import {
 import cfg from "src/configs/about";
 import topbarCfg from "src/configs/topbar";
 import getBoundings from "src/helpers/dom/getBoundings/index";
+import range from "src/helpers/arrays/range/index";
 
 const About = (props) => {
     const aboutRef = useRef(null);
     const teamRef = useRef(null);
     const cardsRef = useRef(null);
+    const backgroundRef = useRef(null);
 
     const checkHeight = (idx) => {
         if (!cardsRef) return false;
@@ -80,18 +82,29 @@ const About = (props) => {
                 `${i}-0-1`
             );
         }
+        backgroundRef.current.style.height = `${
+            getBoundings(props.reference, "1").height * 0.8
+        }px`;
         props.onLoad();
-    }, []);
+    }, [props.resized]);
+
+    const backgrounds = () => {
+        return range(10).map((idx) => (
+            <img
+                key={`bg-${idx}`}
+                src={contents.imgs.background.src}
+                alt={contents.imgs.background.alt}
+                className={classes.BackgroundImg}
+            />
+        ));
+    };
 
     return (
         <section className={classes.Section} ref={props.reference}>
-            <div className={classes.Background}>
-                <img
-                    src={contents.imgs.background.src}
-                    alt={contents.imgs.background.alt}
-                    className={classes.BackgroundImg}
-                />
+            <div className={classes.Background} ref={backgroundRef}>
+                {backgrounds()}
             </div>
+
             <div className={classes.Container}>
                 <div className={classes.Text} ref={aboutRef}>
                     <p />

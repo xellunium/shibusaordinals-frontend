@@ -38,6 +38,7 @@
     height: 100vh;
     width: 100vw;
     position: relative;
+    overflow: hidden;
 }
 
 
@@ -51,7 +52,7 @@
     perspective: 2px;
 }
 
-.Container > section {
+.Container > section:not(:last-child) {
     position: relative;
     margin: 0 auto;
     min-height: 110vh;
@@ -77,7 +78,6 @@
 
 .Container > section > div:nth-of-type(2) {
     width: 100%;
-    min-height: calc(100vh - var(--topbar-h));
     position: relative;
 }
 
@@ -91,6 +91,12 @@
     --topbar-color: var(--gray-8);
     --slope: calc(1920 / 1080);
     --text-color: var(--gray-11);
+    --parallax-layer-0: -1px;
+    --parallax-layer-1: -2px;
+    --parallax-layer-2: -4px;
+    --parallax-scale-0: 1.5;
+    --parallax-scale-1: 2;
+    --parallax-scale-2: 3;
 }
 
 body {

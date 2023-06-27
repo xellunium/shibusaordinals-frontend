@@ -3,11 +3,11 @@
 }
 
 .Container {
-    overflow: hidden;
+    min-height: calc(100vh - var(--topbar-h));
 }
 
 .Background {
-    transform: translateZ(-1px) scale(1.5);
+    transform: translateZ(var(--parallax-layer-0)) scale(var(--parallax-scale-0));
     clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
     -webkit-clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
 }

@@ -2,10 +2,11 @@
 }
 
 .Container {
+    min-height: calc(100vh - var(--topbar-h));
 }
 
 .Background {
-    transform: translateZ(-3px) scale(3);
+    transform: translateZ(var(--parallax-layer-2)) scale(var(--parallax-scale-2));
 }
 
 .BackgroundImage {
@@ -29,11 +30,11 @@
 /* animation: Login 2s linear forwards; */
 /* } */
 
-@keyframes Login {
+/* @keyframes Login {
     0% {
         transform: translate(-50%, 0%);
     }
     100% {
         transform: translate(-50%, -50%);
     }
-}
+} */

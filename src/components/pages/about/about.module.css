@@ -3,10 +3,19 @@
 }
 
 .Background {
-    transform: translateZ(-4px) scale(3);
-    background-image: url("/assets/backgrounds/about.webp");
+    transform: translateZ(-2px) scale(2);
+    /* background-image: url("/assets/backgrounds/about.webp");
     background-size: cover;
-    background-position: bottom right;
+    background-position: bottom right; */
+}
+
+.BackgroundImg {
+    position: relative;
+    width: 100%;
+}
+
+.Background > img:not(:first-of-type) {
+    /* top: -10px; */
 }
 
 /* .BackgroundImgPrim {
@@ -24,7 +33,7 @@
     width: 100%;
     color: var(--text-color);
     direction: ltr;
-    margin-bottom: 50px;;
+    margin-bottom: 50px;
 }
 
 p {
@@ -86,7 +95,6 @@ p > h3 {
     }
 } */
 
-
 /* .StickBottom {
     align-self: flex-end;
     top: 0;
@@ -104,4 +112,3 @@ p > h3 {
         width: 40%;
     }
 }
- 

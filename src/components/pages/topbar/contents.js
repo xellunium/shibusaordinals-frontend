@@ -5,7 +5,7 @@ const contents = {
         logo: imgPack("logos/shibusa.png", "logo"),
     },
     txts: {
-        items: ["HOME", "LORE", "GALLERY", "‌ABOUT"],
+        items: ["HOME", "LORE", "GALLERY", "‌ABOUT", "SOCIALS"],
     },
     socials: [
         {

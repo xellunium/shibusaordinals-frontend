@@ -10,8 +10,8 @@ import barCfg from "src/configs/topbar";
 import Gallery from "src/components/pages/gallery";
 import About from "src/components/pages/about";
 import pageDetector from "src/helpers/pages/pageDetector";
+import Footer from "src/components/pages/footer";
 // import Mint from "src/components/pages/mint";
-// import Footer from "src/components/pages/footer";
 
 const App = () => {
     const pageRefs = [
@@ -90,9 +90,9 @@ const App = () => {
 
     return (
         <>
-            <Loading loadingState={loadingState} />
+            {/* <Loading loadingState={loadingState} /> */}
             <div className={classes.Canvas}>
-                <div class={classes.Container} ref={mainDiv}>
+                <div className={classes.Container} ref={mainDiv}>
                     <Topbar
                         page={page}
                         setPage={scrollPage}
@@ -125,7 +125,14 @@ const App = () => {
                         active={page === 3}
                         page={page}
                         reference={pageRefs[3]}
-                        pageOffset={pageOffset}
+                        onLoad={increaseState}
+                        resized={resized}
+                    />
+                    <Gap height={60} />
+                    <Footer
+                        active={page === 4}
+                        page={page}
+                        reference={pageRefs[4]}
                         onLoad={increaseState}
                     />
                     {/* <Mint active={page === 4} page={page} /> */}
