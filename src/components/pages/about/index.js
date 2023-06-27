@@ -65,10 +65,11 @@ const About = (props) => {
     };
 
     const modifier = () => {
-        if (window.innerWidth < 350) {
-            return 0.7;
-        }
-        return 0.8
+        if (window.innerWidth < 300) return 0.55;
+        if (window.innerWidth < 380) return 0.58;
+        if (window.innerWidth < 470) return 0.6;
+        if (window.innerWidth < 700) return 0.62;
+        return 0.66;
     };
 
     useEffect(() => {
@@ -83,12 +84,32 @@ const About = (props) => {
             clearTimeout(timeout);
             timeout = setTimeout(setHeight, 500);
         };
-        
+
         // fetching data: {texts and cards}
-        updateInnerHtmlFromFile(contents.txts.about.title, aboutRef, "0", resetTimeout);
-        updateInnerHtmlFromFile(contents.txts.about.body, aboutRef, "1", resetTimeout);
-        updateInnerHtmlFromFile(contents.txts.team.title, teamRef, "0", resetTimeout);
-        updateInnerHtmlFromFile(contents.txts.team.body, teamRef, "1", resetTimeout);
+        updateInnerHtmlFromFile(
+            contents.txts.about.title,
+            aboutRef,
+            "0",
+            resetTimeout
+        );
+        updateInnerHtmlFromFile(
+            contents.txts.about.body,
+            aboutRef,
+            "1",
+            resetTimeout
+        );
+        updateInnerHtmlFromFile(
+            contents.txts.team.title,
+            teamRef,
+            "0",
+            resetTimeout
+        );
+        updateInnerHtmlFromFile(
+            contents.txts.team.body,
+            teamRef,
+            "1",
+            resetTimeout
+        );
         for (let i in contents.team) {
             updateInnerHtmlFromFile(
                 contents.team[i].title,

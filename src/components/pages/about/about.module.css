@@ -3,7 +3,7 @@
 }
 
 .Background {
-    transform: translateZ(-2px) scale(2);
+    transform: translateZ(var(--parallax-layer-2)) scale(var(--parallax-scale-2));
     /* background-image: url("/assets/backgrounds/about.webp");
     background-size: cover;
     background-position: bottom right; */
